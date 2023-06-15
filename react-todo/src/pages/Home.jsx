@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
 const Home = () => {
     const [data,setData] = useState([]);
@@ -41,10 +42,7 @@ const Home = () => {
 
     return ( 
         <section>
-            <nav>
-                <h1>TODO</h1>
-            </nav>
-
+           <Header/>
             <article>
                 {data.map((item,index) => (
                     <div key={index} className="todo-item">
@@ -56,7 +54,7 @@ const Home = () => {
                 }
 
                 <form >
-                    <input onChange={handleInput} type="text" />
+                    <input autoFocus onChange={handleInput} type="text" />
                     <input onClick={addToDo} type="submit" value="Submit"/>
                 </form>
             </article>
