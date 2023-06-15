@@ -11,7 +11,6 @@ const Home = () => {
         if(input == "" || input.value == "")
             return;
 
-        event.preventDefault();
         setData([...data, input.value]);
         setChecked([...checked,false]);
         input.value = ""
@@ -22,12 +21,15 @@ const Home = () => {
     }
 
     const deleteMe = (index) => {
-        let newArray = [...data];
-        let newChecked = [...checked];
-        newArray.splice(index,1);
-        newChecked.splice(index,1);
-        setData(newArray);
-        setChecked(newChecked);
+       
+        setData((prev) => {
+            prev.splice(index,1);
+            return [...prev]
+        });
+        setChecked((prev) => {
+            prev.splice(index,1);
+            return [...prev]
+        });
     }
 
     const handleVisuals = (index) => {
