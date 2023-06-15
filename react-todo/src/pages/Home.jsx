@@ -7,18 +7,22 @@ const Home = () => {
 
     const addToDo = (event) => {
         event.preventDefault();
-        setData([...data, input]);
+        setData([...data, input.value]);
         setChecked([...checked,false]);
+        input.value = ""
     }
     
     const handleInput = (event) => {
-        setInput(event.target.value);
+        setInput(event.target);
     }
 
     const deleteMe = (index) => {
         let newArray = [...data];
+        let newChecked = [...checked];
         newArray.splice(index,1);
+        newChecked.splice(index,1);
         setData(newArray);
+        setChecked(newChecked);
     }
 
     const handleVisuals = (index) => {
@@ -40,7 +44,7 @@ const Home = () => {
             <article>
                 {data.map((item,index) => (
                     <div key={index} className="todo-item">
-                        <input onChange={() => handleVisuals(index)} type="checkbox" />
+                        <input checked={checked[index]? true : false} onChange={() => handleVisuals(index)} type="checkbox" />
                         <p className={checked[index]?"visuals":""}>{item}</p>
                         <a onClick={() => deleteMe(index)}>DELETE</a>
                     </div>
