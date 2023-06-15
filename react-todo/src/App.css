@@ -69,6 +69,8 @@ article{
 
 .visuals{
   text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 5px;
 }
 
 form{
