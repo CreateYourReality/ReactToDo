@@ -6,6 +6,10 @@ const Home = () => {
     const [checked, setChecked] = useState([]);
 
     const addToDo = (event) => {
+        event.preventDefault()
+        if(input == "" || input.value == "")
+            return;
+
         event.preventDefault();
         setData([...data, input.value]);
         setChecked([...checked,false]);
