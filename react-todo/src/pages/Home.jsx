@@ -46,13 +46,12 @@ const Home = () => {
                     </div>
                 ))
                 }
-            </article>
 
-            <form >
-                <input onChange={handleInput} type="text" />
-                <input onClick={addToDo} type="submit" value="Submit"/>
-            </form>
-            
+                <form >
+                    <input onChange={handleInput} type="text" />
+                    <input onClick={addToDo} type="submit" value="Submit"/>
+                </form>
+            </article>
         </section>
      );
 }
